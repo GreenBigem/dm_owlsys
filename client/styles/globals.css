@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  margin-left: 0%;
+  margin-right: 0%;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@layer base {
+  body{
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgb(var(--background-end-rgb))
+      )
+      rgb(var(--background-start-rgb));
+  
+  }
+
+
+}
+
+.bodytry  {
+  background: #141E30;
+  background: -webkit-linear-gradient(to right, #241B55, #141e30);
+  background: linear-gradient(to right, #241B55, #141e30);
+  min-height: 100vh;
+}
+
+ /* .a:active {
+  color: red;
+} */
+
+/* a:link { color: blue; }          Непосещённые ссылки */
+/* a:visited { color: purple; }     Посещённые ссылки */
+/* a:hover { background: yellow; }  Ссылки при наведении */
+ 
+/* .li:active { color: red; }         Активные ссылки */
+
+/* p:active { background: #eee; }   Активные абзацы */
+
+
+
+
+
