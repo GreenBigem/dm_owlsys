@@ -2,29 +2,44 @@ import TasksLayout from "@/components/tasksLayout/tasksLayout";
 import { createTask } from "@/src/redux/features/task/taskSlice";
 import { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux';
+import { useRouter } from "next/router";
+import { toast } from "react-toastify";
 
 export default function Create() {
 
         const [title, setTitle] = useState('')
         const [description, setDescription] = useState('')
         const [image, setImage] = useState('')
-        const [endDate, setEndDate] = useState()
+        const [endDate, setEndDate] = useState(false)
+        const [redirect, setRedirect] = useState()
         const dispatch = useDispatch()
+        const router = useRouter()
 
         const submitHandle = () => {
+
+
             try {
                 const data = new FormData()
                 data.append('title', title)
                 data.append('description', description)
                 data.append('image', image)
                 data.append('end_date', endDate)
-
                 dispatch(createTask(data))
+                router.push('/user/tasks/')
 
             } catch (error) {
                 console.log(error);
             }
         }
+
+        const clearFormHandler = () => {
+            setTitle(''),
+            setDescription(''),
+            setEndDate(''),
+            setImage(''),
+            router.push('/user/tasks/')
+        }
+
 
     return (
         <>
@@ -81,18 +96,22 @@ export default function Create() {
                                         id="imgUrl"
                                         className="hidden" />
                                 </div>
-                                <div className="flex object-cover py-2">Image</div>
+                                <div className="flex object-cover py-2">
+                                    { image && (
+                                        <img src={URL.createObjectURL(image)} alt={image.name} />
+                                    ) }
+                                </div>
                             </div>
                             <button
                                 type="submit"
                                 onClick={submitHandle}
-                                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                className="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 shadow-3xl">
                                 Сохранить
                             </button>
                             <button
                                 type="submit"
-                                // onClick={createNewTask}
-                                className="mx-3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                onClick={clearFormHandler}
+                                className="shadow-2xl mx-3 text-white bg-red-400 hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                 Отменить
                             </button>
                         </form>

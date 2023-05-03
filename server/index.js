@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 import cors from 'cors'
 import authRoute from './routes/auth.js'
 import taskRoute from './routes/taskRoute.js'
+import contractorRoute from './routes/contractorRoute.js'
 import fileUpload from "express-fileupload";
 
 const app = express()
@@ -25,6 +26,7 @@ app.use(express.static('uploads'))
 
 app.use('/api/auth', authRoute)
 app.use('/api/tasks', taskRoute)
+app.use('/api/contractors', contractorRoute)
 
 // Functions
 

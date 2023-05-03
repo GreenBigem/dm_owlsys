@@ -15,7 +15,6 @@ export default function UserMenu() {
     dispatch(logout)
     window.localStorage.removeItem('token')
     toast('Вы вышли из системы.')
-
     setTimeout(() => {
       router.push('/')
       router.reload()

@@ -9,14 +9,14 @@ import { fileURLToPath } from "url";
 export const getAll = async (req, res) => {
     try {
 
-        const user = await User.findById(req.userId)
+        const tasks = await Task.find().sort('-createdAt')
+        const popularTasks = await Task.find().limit(5).sort('-views')
 
-        if (!user) {
-            res.json({ message: "Такого пользователя не существует." })
-        }
-
-        res.json({ user, message: "Hello" })
-
+        if (!tasks) {
+            res.json({ message: "Задач нет." })
+        } else (
+            res.json({tasks, popularTasks})
+        )
     } catch (error) {
         console.log(error);
     }

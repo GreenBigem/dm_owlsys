@@ -7,6 +7,17 @@ const initialState = {
     loading: false
 }
 
+export const getAllTasks = createAsyncThunk(
+    'task/getAllTasks', 
+    async () => {
+    try {
+        const { data } = await axios.get('/tasks')
+        return data
+    } catch (error) {
+        console.log(error);
+    }
+})
+
 export const createTask = createAsyncThunk(
     '/task/createTask',
     async (params) => {
@@ -23,6 +34,9 @@ export const taskSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: {
+
+        //Создание поста
+
         [createTask.pending]: (state) => {
             state.loading = true
         },
@@ -33,6 +47,21 @@ export const taskSlice = createSlice({
         [createTask.rejected]: (state) => {
             state.loading = false
         },
+
+        // Получение всех постов
+
+        [getAllTasks.pending]: (state) => {
+            state.loading = true
+        },
+        [getAllTasks.fulfilled]: (state, action) => {
+            state.loading = false
+            state.tasks = action.payload.tasks
+            state.popularTasks = action.payload.popularTasks
+        },
+        [getAllTasks.rejected]: (state) => {
+            state.loading = false
+        },
+
     },
 })
 

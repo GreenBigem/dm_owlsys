@@ -5,6 +5,9 @@ import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { getMe } from '@/src/redux/features/auth/authSlice.js'
 
+import s from './layout.module.css'
+import { Main } from 'next/document';
+
 export default function Layout({ children }) {
 
   const dispatch = useDispatch()
@@ -13,11 +16,9 @@ export default function Layout({ children }) {
     dispatch(getMe())
   }, [dispatch])
 
-  return (
-    <>
-      <Navbar />
-      <div className="h-screen">{children}</div>
-      <Footer />
-    </>
-  )
+  return (<div className={s.wrapper}>
+    <div className={s.header}><Navbar /></div>
+    <div className={s.main}>{children}</div>
+    <div className={s.footer}><Footer /></div>
+  </div>)
 }

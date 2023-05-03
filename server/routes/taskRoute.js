@@ -8,11 +8,24 @@ const router = new Router()
 
 // Get all tasks
 // http://localhost:3002/api/task/
-router.get('/', checkAuth, createTask)
+// router.get('/', checkAuth, getAll)
+router.get('/', getAll)
 
 // Create task
 // http://localhost:3002/api/tasks
 router.post('/', checkAuth, createTask)
+
+// Get Task by id
+// http://localhost:3002/api/tasks/:id
+router.get('/:id', checkAuth)
+
+// Update Task by id
+// http://localhost:3002/api/tasks/:id
+router.put('/:id', checkAuth)
+
+// Deleye Task by id
+// http://localhost:3002/api/tasks/:id
+router.delete('/:id', checkAuth)
 
 
 export default router

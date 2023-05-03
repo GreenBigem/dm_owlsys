@@ -1,0 +1,19 @@
+.left_sibar {
+  grid-area: lsb;
+  display: grid;
+}
+
+.content {
+  grid-area: content;
+  display: grid;
+}
+
+.right_sidebar {
+  grid-area: rsb;
+  display: grid;
+  grid-template-rows: 15px, 30px, 30px;
+  gap: 15px;
+  align-content: start;
+  justify-content: center;
+  justify-items: center;
+}
