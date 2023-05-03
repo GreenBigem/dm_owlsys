@@ -1,0 +1,66 @@
+.left_sidebar {
+    grid-area: lsb;
+    margin: 5px;
+    background: #dde1e7;
+    border-radius: 5px;
+    box-shadow: inset -3px -3px 7px #ffffff73, inset 3px 3px 5px rgba(94, 104, 121, .228);
+    display: grid;
+    grid-template-rows: 25px 1fr repeat(auto-fill, 1fr);
+    gap: 5px;
+}
+
+.lsb_first_block {
+    align-items: center;
+    justify-items: center;
+    background: #dde1e7;
+    border-radius: 5px;
+    box-shadow: -3px -3px 7px #ffffff73, 3px 3px 5px rgba(94, 104, 121, .228);
+    display: grid;
+    margin: 5px;
+}
+
+.lsb_nav {
+    align-items: center;
+    justify-items: center;
+    background: #dde1e7;
+    border-radius: 5px;
+    box-shadow: -3px -3px 7px #ffffff73, 3px 3px 5px rgba(94, 104, 121, .228);
+    display: grid;
+    align-content: start;
+    gap: 5px;
+    margin: 5px;
+}
+
+.lsb_nav_button {
+    align-content: center;
+    justify-content: center;
+    background: #dde1e7;
+    height: 20px;
+    border-radius: 5px;
+    box-shadow: -3px -3px 7px #ffffff73, 3px 3px 5px rgba(94, 104, 121, .228);
+    display: grid;
+    margin: 10px;
+}
+
+.lsb_nav_button:hover {
+    align-items: center;
+    justify-items: center;
+    background: #dde1e7;
+    height: 20px;
+    border-radius: 5px;
+    box-shadow: -3px -3px 7px #ffffff73, 3px 3px 5px rgba(94, 104, 121, .628);
+    display: grid;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.lsb_nav_button:active {
+    align-items: center;
+    justify-items: center;
+    background: #dde1e7;
+    height: 20px;
+    border-radius: 5px;
+    box-shadow: inset -3px -3px 7px #ffffff73, inset 3px 3px 5px rgba(94, 104, 121, .228);
+    display: grid;
+    margin: 10px;
+}

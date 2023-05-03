@@ -1,0 +1,19 @@
+.center_content {
+    grid-area: content;
+    margin: 5px;
+    background: #dde1e7;
+    border-radius: 5px;
+    box-shadow: inset -3px -3px 7px #ffffff73, inset 3px 3px 5px rgba(94, 104, 121, .228);
+    display: grid;
+    gap: 10px;
+}
+
+.right_sidebar {
+    background: #dde1e7;
+    margin: 5px;
+    border-radius: 5px;
+    box-shadow: inset -3px -3px 7px #ffffff73, inset 3px 3px 5px rgba(94, 104, 121, .228);
+    display: grid;
+    grid-template-rows: 40px 1fr repeat(auto-fill, 1fr);
+    gap: 5px;
+}

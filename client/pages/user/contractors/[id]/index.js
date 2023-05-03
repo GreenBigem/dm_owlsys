@@ -1,46 +1,53 @@
-import SideBar from '@/components/contractorLayout/sidebar/sidebar'
-import Header from '@/components/contractorLayout/header/header'
-import { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { useRouter } from 'next/router'
-import { getContractorById } from '@/src/redux/features/contractor/contractorSlice'
-import Link from 'next/link'
-
-
+import SideBar from "@/components/contractorLayout/sidebar/sidebar";
+import Header from "@/components/contractorLayout/header/header";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/router";
+import { getContractorById } from "@/src/redux/features/contractor/contractorSlice";
+import Link from "next/link";
+import s from "./index.module.css";
+import LeftSideBar from "@/components/contractors/index/leftSideBar/leftSideBar";
+import RightSideBar from "@/components/contractors/index/rightSideBar/rightSideBar";
 
 export default function Index() {
-
-  const dispatch = useDispatch()
-  const { contractor } = useSelector((state) => state.contractor)
-  const router = useRouter()
-  const id = router.query.id
+  const dispatch = useDispatch();
+  const { contractor } = useSelector((state) => state.contractor);
+  const router = useRouter();
+  const id = router.query.id;
 
   useEffect(() => {
-      
-      dispatch(getContractorById(id))
-  }, [dispatch, id])
+    dispatch(getContractorById(id));
+  }, [dispatch, id]);
 
   if (!contractor) {
-      return (
-          <div className="text-xl text-black text-center py-10">
-              Такого контрагента нет.
-              <Link href={'/user/contractors/create'} className="flex justify-center text-xs text-gray-500 hover:text-gray-800 py-2">Хотите создать?</Link>
-          </div>
-      )
+    return (
+      <div className="text-xl text-black text-center py-10">
+        Такого контрагента нет.
+        <Link
+          href={"/user/contractors/create"}
+          className="flex justify-center text-xs text-gray-500 hover:text-gray-800 py-2"
+        >
+          Хотите создать?
+        </Link>
+      </div>
+    );
   }
 
+  // const clearFormHandler = () => {
+  //     setTitle(''),
+  //     setDescription(''),
+  //     setEndDate(''),
+  //     setImage(''),
+  //     router.push('/user/tasks/')
+  // }
 
-    // const clearFormHandler = () => {
-    //     setTitle(''),
-    //     setDescription(''),
-    //     setEndDate(''),
-    //     setImage(''),
-    //     router.push('/user/tasks/')
-    // }
+  return (
+    <>
+      <LeftSideBar />
+      <div className={s.center_content}>Center</div>
+      <RightSideBar />
 
-    return (
-        <>
-            <div className='flex flex-col'>
+      {/* <div className='flex flex-col'>
                 <Header />
                 <div className='flex flex-row'>
                     <div className='basis-2/12'>
@@ -118,8 +125,7 @@ export default function Index() {
                         </div>
                     </div>
                 </div>
-            </div>
-
-        </>
-    )
+            </div> */}
+    </>
+  );
 }

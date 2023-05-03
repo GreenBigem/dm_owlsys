@@ -8,8 +8,8 @@
   min-height: 96vh;
   align-content: stretch;
   grid-template-areas: "header header header"
-      "main main main"
-      "footer footer footer";
+    "main main main"
+    "footer footer footer";
 
   /* justify-content: space-evenly;
   align-content: space-evenly; */
@@ -17,16 +17,7 @@
   padding: 10px;
 
   box-shadow: inset -3px -3px 7px #ffffff73,
-      inset 3px 3px 5px rgba(94, 104, 121, .228);
-}
-
-.header {
-  grid-area: header;
-  background: #dde1e7;
-  border-radius: 5px;
-  box-shadow: -3px -3px 7px #ffffff73,
-      3px 3px 5px rgba(94, 104, 121, .228);
-  display: grid;
+    inset 3px 3px 5px rgba(94, 104, 121, .228);
 }
 
 .main {
