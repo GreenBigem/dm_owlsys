@@ -1,29 +1,33 @@
-import { Router } from "express"
-import { checkAuth } from "../utils/checkAuth.js"
-import { deleteContractorById, updateContractorById, getAllContractors, getContractorById } from "../controllers/contractorController.js"
-import { createContractor } from '../controllers/contractorController.js';
+import { Router } from "express";
+import { checkAuth } from "../utils/checkAuth.js";
+import {
+  getAllContractors,
+  createContractor,
+  getContractorById,
+  patchContractorById,
+  deleteContractorById,
+} from "../controllers/contractorController.js";
 
-const router = new Router()
+const router = new Router();
 
-// Get all user??? Contractors
-// http://localhost:3002/api/contractors/
-// router.get('/', checkAuth, getAll)
-router.get('/', checkAuth, getAllContractors)
+// Get all user's Contractors
+// http://SERVER:PORT/api/API_VERSION/contractors
+router.get("/", checkAuth, getAllContractors);
 
 // Create Contractor
-// http://localhost:3002/api/contractors
-router.post('/', checkAuth, createContractor)
+// http://SERVER:PORT/api/API_VERSION/contractors
+router.post("/", checkAuth, createContractor);
 
 // Get Contractor by id
-// http://localhost:3002/api/contractors/:id
-router.get('/:id', checkAuth, getContractorById)
+// http://SERVER:PORT/api/API_VERSION/contractors/:id
+router.get("/:id", checkAuth, getContractorById);
 
-// Update Contractor by id
-// http://localhost:3002/api/contractors/:id
-router.put('/:id', checkAuth, updateContractorById)
+// Patch Contractor by id
+// http://SERVER:PORT/api/API_VERSION/contractors/:id
+router.patch("/:id", checkAuth, patchContractorById);
 
-// Deleye Contractor by id
-// http://localhost:3002/api/contractors/:id
-router.delete('/:id', checkAuth, deleteContractorById)
+// Delete Contractor by id
+// http://SERVER:PORT/api/API_VERSION/contractors/:id
+router.delete("/:id", checkAuth, deleteContractorById);
 
-export default router
+export default router;
