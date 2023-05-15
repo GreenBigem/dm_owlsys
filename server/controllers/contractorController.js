@@ -27,11 +27,15 @@ export const getAllContractors = async (req, res) => {
 // http://SERVER:PORT/api/API_VERSION/contractors
 export const createContractor = async (req, res) => {
   try {
-    const { surname, name } = req.body;
+    const { surname, name, ec_short_legal_form, ec_short_name, ec_inn } =
+      req.body;
     const user = await User.findById(req.userId);
     const newContractor = new Contractor({
       surname: surname,
       name,
+      ec_short_legal_form,
+      ec_short_name,
+      ec_inn,
       user_id: user._id,
     });
 

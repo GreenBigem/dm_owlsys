@@ -48,8 +48,8 @@ export default function Index() {
         <div>{contractor._id}</div>
         <div>{contractor.user_id}</div>
         <div>{contractor.ec_short_name}</div>
-        <div>{contractor.name}</div>
-        <div>{contractor.surname}</div>
+        {/* <div>{contractor.name}</div>
+        <div>{contractor.surname}</div> */}
         <div>{contractor.ec_inn}</div>
         {/* <div>{contractor}</div> */}
       </div>
