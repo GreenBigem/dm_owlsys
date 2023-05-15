@@ -44,7 +44,15 @@ export default function Index() {
   return (
     <>
       <LeftSideBar />
-      <div className={s.center_content}>Center</div>
+      <div className={s.center_content}>
+        <div>{contractor._id}</div>
+        <div>{contractor.user_id}</div>
+        <div>{contractor.ec_short_name}</div>
+        <div>{contractor.name}</div>
+        <div>{contractor.surname}</div>
+        <div>{contractor.ec_inn}</div>
+        {/* <div>{contractor}</div> */}
+      </div>
       <RightSideBar />
 
       {/* <div className='flex flex-col'>

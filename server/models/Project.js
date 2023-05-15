@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const TaskSchema = new mongoose.Schema(
+const ProjectSchema = new mongoose.Schema(
   {
     title: {
       type: String,
@@ -10,14 +10,10 @@ const TaskSchema = new mongoose.Schema(
       type: String,
       required: false,
     },
-    end_date: {
-      type: Date,
-      required: false,
-    },
-    comments: [
+    tasks: [
       {
         type: mongoose.SchemaTypes.ObjectId,
-        ref: "Comment",
+        ref: "Task",
       },
     ],
     is_finished: {
@@ -28,21 +24,13 @@ const TaskSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
-    is_important: {
-      type: Boolean,
-      default: false,
-    },
     user_id: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
-    },
-    project_id: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Project",
     },
   },
 
   { timestamps: true }
 );
 
-export default mongoose.model("Task", TaskSchema);
+export default mongoose.model("Project", ProjectSchema);

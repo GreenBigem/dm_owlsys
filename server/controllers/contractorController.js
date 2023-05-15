@@ -51,18 +51,11 @@ export const createContractor = async (req, res) => {
 export const getContractorById = async (req, res) => {
   try {
     const user = await User.findById(req.userId);
-    if (user) {
-      const { id } = req.params;
-      const contractor = await Contractor.findOne({
-        _id: id,
-        user_id: user.id,
-      });
-      res
-        .status(200)
-        .json({ contractor, message: "Контрагент успешно найден." });
-    } else {
-      res.status(401.1).json({ message: "Такого пользователя не существует." });
-    }
+    const { id } = req.params;
+
+    const contractor = await Contractor.findById(id);
+    console.log(contractor);
+    res.json({ contractor });
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Внутренняя ошибка сервера." });

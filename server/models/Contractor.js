@@ -21,7 +21,7 @@ const ContractorSchema = new Schema(
 
     surname: {
       type: String,
-      required: true,
+      required: false,
       unique: false,
       // minlength и maxlength: задают минимальную и максимальную длину для строк
       minlength: 3,

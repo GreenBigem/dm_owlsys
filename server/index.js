@@ -3,8 +3,10 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
 import authRoute from "./routes/auth.js";
-import taskRoute from "./routes/taskRoute.js";
 import contractorRoute from "./routes/contractorRoute.js";
+import projectRoute from "./routes/projectRoute.js";
+import taskRoute from "./routes/taskRoute.js";
+import commentRoute from "./routes/commentRoute.js";
 import fileUpload from "express-fileupload";
 
 const app = express();
@@ -23,8 +25,10 @@ app.use(express.static("uploads"));
 
 // Routes - http(s)://SERVER:PORT/
 app.use(`/api/${API_VERSION}/auth`, authRoute);
-app.use(`/api/${API_VERSION}/tasks`, taskRoute);
 app.use(`/api/${API_VERSION}/contractors`, contractorRoute);
+app.use(`/api/${API_VERSION}/projects`, projectRoute);
+app.use(`/api/${API_VERSION}/tasks`, taskRoute);
+app.use(`/api/${API_VERSION}/comments`, commentRoute);
 
 // Functions
 async function start() {
